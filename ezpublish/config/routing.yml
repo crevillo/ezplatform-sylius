@@ -26,3 +26,7 @@ _ezpublishPlatformUIRoutes:
 
 _ezpublishDemoRoutes:
     resource: "@eZDemoBundle/Resources/config/routing.yml"
+
+sylius_cart:
+    resource: "@SyliusCartBundle/Resources/config/routing.yml"
+    prefix: /cart

@@ -13,6 +13,14 @@ doctrine:
                 password: %database_password%
                 dbname: %database_name%
                 charset: UTF8
+    orm:
+        default_entity_manager:   default
+        entity_managers:
+            default:
+                connection:       default
+                mappings:
+                    eZSyliusBundle: ~
+
 
 framework:
     esi:             ~
@@ -53,7 +61,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ eZDemoBundle ]
+    bundles:        [ eZDemoBundle,eZSyliusBundle ]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -69,3 +77,23 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+sylius_cart:
+    resolver: ezsylius.cart_item_resolver
+    classes:
+        cart:
+            controller: Crevillo\EzSyliusBundle\Controller\CartController
+
+sylius_order:
+    driver: doctrine/orm
+    classes:
+        order_item:
+            model: Crevillo\EzSyliusBundle\Entity\CartItem
+
+sylius_money: ~
+
+sylius_translation:
+    default_locale: %locale_fallback%
+    locale_provider: sylius.translation.locale_provider.contextual
+
+

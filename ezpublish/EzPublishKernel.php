@@ -22,6 +22,18 @@ class EzPublishKernel extends Kernel
     public function registerBundles()
     {
         $bundles = array(
+            new Sylius\Bundle\ResourceBundle\SyliusResourceBundle(),
+            new Sylius\Bundle\MoneyBundle\SyliusMoneyBundle(),
+            new Sylius\Bundle\OrderBundle\SyliusOrderBundle(),
+            new Sylius\Bundle\CartBundle\SyliusCartBundle(),
+            new \Sylius\Bundle\PricingBundle\SyliusPricingBundle(),
+            new \Sylius\Bundle\CurrencyBundle\SyliusCurrencyBundle(),
+            new Sylius\Bundle\FlowBundle\SyliusFlowBundle(),
+            new Sylius\Bundle\AddressingBundle\SyliusAddressingBundle(),
+            new \Sylius\Bundle\TranslationBundle\SyliusTranslationBundle(),
+            new Sylius\Bundle\LocaleBundle\SyliusLocaleBundle(),
+            new FOS\RestBundle\FOSRestBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle($this),
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
@@ -50,6 +62,8 @@ class EzPublishKernel extends Kernel
             new EzSystems\PlatformInstallerBundle\EzSystemsPlatformInstallerBundle(),
             new EzSystems\PrivacyCookieBundle\EzSystemsPrivacyCookieBundle(),
             new EzSystems\RepositoryFormsBundle\EzSystemsRepositoryFormsBundle(),
+            new \Crevillo\EzSyliusBundle\CrevilloEzSyliusBundle(),
+            new \EzSystems\EzPriceBundle\EzSystemsEzPriceBundle()
         );
 
         switch ( $this->getEnvironment() )
